@@ -1,13 +1,24 @@
 {
-  "name": "powerlifting-formulas",
-  "version": "0.1.0",
+  "name": "@marantesss/powerlifting-formulas",
+  "version": "0.2.0",
   "description": "Powerlifting Formulas Calculator (Wilks, WilksV2, Dots, IPF, Reshel and Glossbrenner)",
-  "keywords": ["powerlifting", "calculator", "ipf", "wilks", "dots", "Reshel", "Glossbrenner"],
+  "keywords": [
+    "powerlifting",
+    "calculator",
+    "ipf",
+    "wilks",
+    "dots",
+    "Reshel",
+    "Glossbrenner"
+  ],
   "author": "Marantesss <goncalojmarantes@gmail.com>",
   "license": "MIT",
   "main": "build/index.js",
+  "module": "esm/index.js",
   "types": "build/index.d.ts",
-  "files": ["build"],
+  "files": [
+    "build"
+  ],
   "type": "module",
   "engines": {
     "node": ">=14.17"
@@ -17,12 +28,15 @@
     "url": "https://github.com/Marantesss/powerlifting-formulas"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "npm run build:esm && npm run build:cjs",
+    "build:cjs": "ncc build src/index.ts -o build -m",
+    "build:esm": "tsc --target ESNext --module ES6 --outDir esm",
     "test": "vitest",
     "test:watch": "vitest --watch"
   },
   "devDependencies": {
     "@types/node": "^20.9.2",
+    "@vercel/ncc": "^0.38.1",
     "tsc": "^2.0.4",
     "typescript": "^5.3.2",
     "vitest": "^0.34.6"

@@ -189,6 +189,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@marantesss/powerlifting-formulas@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "@marantesss/powerlifting-formulas@workspace:."
+  dependencies:
+    "@types/node": "npm:^20.9.2"
+    "@vercel/ncc": "npm:^0.38.1"
+    tsc: "npm:^2.0.4"
+    typescript: "npm:^5.3.2"
+    vitest: "npm:^0.34.6"
+  languageName: unknown
+  linkType: soft
+
 "@npmcli/agent@npm:^2.0.0":
   version: 2.2.0
   resolution: "@npmcli/agent@npm:2.2.0"
@@ -331,6 +343,17 @@ __metadata:
   dependencies:
     undici-types: "npm:~5.26.4"
   checksum: 891a035a5b7796001f5daaec03b2d84ebb67d731b67abb34c352af1b5b1f53beb4a92f0f6a66f6e0ed97191c3022cc8c830e048f8a5c53806e8ab248873a7c7b
+  languageName: node
+  linkType: hard
+
+"@vercel/ncc@npm:^0.38.1":
+  version: 0.38.1
+  resolution: "@vercel/ncc@npm:0.38.1"
+  dependencies:
+    node-gyp: "npm:latest"
+  bin:
+    ncc: dist/ncc/cli.js
+  checksum: 3e6c08251ccc8c6c7ca6523f223e326c70950af787259252c8a19ef04a7f8cc4c42d4c1ddb94f227a9d0d1c5429f71e303daf6a356948b4f81bcd38d075c9b24
   languageName: node
   linkType: hard
 
@@ -1223,17 +1246,6 @@ __metadata:
   checksum: 748b82e6e5fc34034dcf2ae88ea3d11fd09f69b6c50ecdd3b4a875cfc7cdca435c958b211e2cb52355422ab6fccb7d8f2f2923161d7a1b281029e4a913d59acf
   languageName: node
   linkType: hard
-
-"powerlifting-formulas@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "powerlifting-formulas@workspace:."
-  dependencies:
-    "@types/node": "npm:^20.9.2"
-    tsc: "npm:^2.0.4"
-    typescript: "npm:^5.3.2"
-    vitest: "npm:^0.34.6"
-  languageName: unknown
-  linkType: soft
 
 "pretty-format@npm:^29.5.0":
   version: 29.7.0
