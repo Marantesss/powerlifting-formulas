@@ -1,6 +1,6 @@
 {
   "name": "powerlifting-formulas",
-  "version": "0.2.1",
+  "version": "0.2.3",
   "description": "Powerlifting Formulas Calculator (Wilks, WilksV2, Dots, IPF, Reshel and Glossbrenner)",
   "type": "module",
   "keywords": [
@@ -15,9 +15,7 @@
   "author": "Marantesss <goncalojmarantes@gmail.com>",
   "license": "MIT",
   "main": "dist/index.cjs",
-  "module": "dist/index.module.js",
-  "unpkg": "./dist/index.umd.js",
-  "exports": "./dist/index.modern.mjs",
+  "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist"
@@ -30,15 +28,14 @@
     "url": "git+https://github.com/Marantesss/powerlifting-formulas.git"
   },
   "scripts": {
-    "build": "microbundle --sourcemap false",
-    "dev": "microbundle watch --sourcemap false",
+    "build": "tsup",
     "test": "vitest",
     "test:watch": "vitest --watch"
   },
   "devDependencies": {
     "@types/node": "^20.9.2",
-    "microbundle": "^0.15.1",
     "tsc": "^2.0.4",
+    "tsup": "^8.0.1",
     "typescript": "^5.3.2",
     "vitest": "^0.34.6"
   },
