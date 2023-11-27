@@ -8,11 +8,14 @@ const COEFFICIENTS_ORIGINAL: Coefficients = {
   female: [594.31747775582, -27.23842536447, 0.82112226871, -0.00930733913, 4.731582e-5, -9.054e-8]
 }
 
+export const wilksCoefficient = (weightKG: number, gender: Gender): number =>
+  coefficient(500, weightKG, COEFFICIENTS_ORIGINAL[gender])
+
 export const wilks: Formula = (weight: number, total: number, gender: Gender, mass: Mass = 'kg'): number => {
   const _total = mass === 'kg' ? total : toKilograms(total)
   const _weight = mass === 'kg' ? weight : toKilograms(weight)
 
-  return format(_total * coefficient(500, _weight, COEFFICIENTS_ORIGINAL[gender]))
+  return format(_total * wilksCoefficient(_weight, gender))
 }
 
 const COEFFICIENTS_2020: Coefficients = {
@@ -20,9 +23,12 @@ const COEFFICIENTS_2020: Coefficients = {
   female: [-125.4255398, 13.71219419, -0.03307250631, -0.001050400051, 9.38773881462799e-6, -2.3334613884954e-8]
 }
 
+export const wilks2020Coefficient = (weightKG: number, gender: Gender): number =>
+  coefficient(600, weightKG, COEFFICIENTS_2020[gender])
+
 export const wilks2020: Formula = (weight: number, total: number, gender: Gender, mass: Mass = 'kg'): number => {
   const _total = mass === 'kg' ? total : toKilograms(total)
   const _weight = mass === 'kg' ? weight : toKilograms(weight)
 
-  return format(_total * coefficient(600, _weight, COEFFICIENTS_2020[gender]))
+  return format(_total * wilks2020Coefficient(_weight, gender))
 }

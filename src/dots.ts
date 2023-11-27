@@ -8,9 +8,12 @@ const COEFFICIENTS: Coefficients = {
   female: [-57.96288, 13.6175032, -0.1126655495, 5.158568e-4, -1.0706e-6],
 }
 
+export const dotsCoefficient = (weightKG: number, gender: Gender): number =>
+  coefficient(500, weightKG, COEFFICIENTS[gender])
+
 export const dots: Formula = (weight: number, total: number, gender: Gender, mass: Mass = 'kg'): number => {
   const _total = mass === 'kg' ? total : toKilograms(total)
   const _weight = mass === 'kg' ? weight : toKilograms(weight)
 
-  return format(_total * coefficient(500, _weight, COEFFICIENTS[gender]))
+  return format(_total * dotsCoefficient(_weight, gender))
 }
