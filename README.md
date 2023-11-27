@@ -2,6 +2,8 @@
 
 Check [this article](https://www.taylorsstrength.co.uk/powerlifting-formulas-is-wilks-best-and-what-are-the-alternatives/) to learn more about formulas.
 
+Formulas were heavily inspired on [OpenPowerlifting Coefficients Crate](https://github.com/sstangl/openpowerlifting/tree/main/crates/coefficients/src)
+
 ## Getting started
 
 Install this package with you favorite package manager
