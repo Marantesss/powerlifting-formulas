@@ -30,8 +30,8 @@
     "url": "git+https://github.com/Marantesss/powerlifting-formulas.git"
   },
   "scripts": {
-    "build": "microbundle",
-    "dev": "microbundle watch",
+    "build": "microbundle --sourcemap false",
+    "dev": "microbundle watch --sourcemap false",
     "test": "vitest",
     "test:watch": "vitest --watch"
   },
