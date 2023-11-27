@@ -19,22 +19,26 @@ Then use it like so:
 ```ts
 import { wilks } from 'powerlifting-formulas'
 
-// calculate OLD wilks formula for 82.5kg male lifer with 680kg lifted
-wilks(82.5, 680, 'male')
-// calculate new wilks formula for 120lbs female lifer with 425lbs lifted
+// calculate wilks for 82.5kg male lifer with 680kg lifted
+wilks(82.5, 680, 'male') // default is kg
+// calculate wilks for 120lbs female lifer with 425lbs lifted
 wilks(120, 425, 'female', 'lb')
 ```
 
 ## Formulas
+
+All formulas have the same signature:
+
+```ts
+export type Formula = (weight: number, total: number, gender: 'male' | 'female', mass?: 'kg' | 'lb') => number
+```
 
 ### Wilks before 2020
 
 ```ts
 import { wilks } from 'powerlifting-formulas'
 
-// calculate OLD wilks formula for 82.5kg male lifer with 680kg lifted
 wilks(82.5, 680, 'male')
-// calculate new wilks formula for 120lbs female lifer with 425lbs lifted
 wilks(120, 425, 'female', 'lb')
 ```
 
@@ -43,9 +47,7 @@ wilks(120, 425, 'female', 'lb')
 ```ts
 import { wilks2020 } from 'powerlifting-formulas'
 
-// calculate OLD wilks formula for 82.5kg male lifer with 680kg lifted
 wilks2020(82.5, 680, 'male')
-// calculate new wilks formula for 120lbs female lifer with 425lbs lifted
 wilks2020(120, 425, 'female', 'lb')
 ```
 
@@ -54,9 +56,34 @@ wilks2020(120, 425, 'female', 'lb')
 ```ts
 import { dots } from 'powerlifting-formulas'
 
-// calculate OLD wilks formula for 82.5kg male lifer with 680kg lifted
 dots(82.5, 680, 'male')
-// calculate new wilks formula for 120lbs female lifer with 425lbs lifted
 dots(120, 425, 'female', 'lb')
+```
+
+### Reshel
+
+```ts
+import { reshel } from 'powerlifting-formulas'
+
+reshel(82.5, 680, 'male')
+reshel(120, 425, 'female', 'lb')
+```
+
+### Glossbrenner
+
+```ts
+import { glossbrenner } from 'powerlifting-formulas'
+
+glossbrenner(82.5, 680, 'male')
+glossbrenner(120, 425, 'female', 'lb')
+```
+
+### Schwartz-Malone
+
+```ts
+import { schwartzMalone } from 'powerlifting-formulas'
+
+schwartzMalone(82.5, 680, 'male')
+schwartzMalone(120, 425, 'female', 'lb')
 ```
 
