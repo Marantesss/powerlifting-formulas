@@ -62,6 +62,8 @@ dots(120, 425, 'female', 'lb')
 
 ### Reshel
 
+**⚠️ WARNING ⚠️** Reshel might be a bit off. At worst, it is off by about six Reshel points (0.01), affecting middleweights.
+
 ```ts
 import { reshel } from 'powerlifting-formulas'
 
