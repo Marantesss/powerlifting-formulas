@@ -1,18 +1,18 @@
 import { Formula, Gender, Mass } from "../src/types"
-import { schwartz } from "../src/schwartz-malone"
+import { malone, schwartz, schwartzmalone } from "../src/schwartz-malone"
 import { describe, expect, it } from "vitest"
 import { toKilograms } from "../src/utils"
 
 describe('schwartz-malone', () => {
-  describe('schwartz', () => {
-    type TestInputData = {
-      weight: number
-      total: number
-      gender: Gender
-      mass?: Mass
-      expected: ReturnType<Formula>
-    }
+  type TestInputData = {
+    weight: number
+    total: number
+    gender: Gender
+    mass?: Mass
+    expected: ReturnType<Formula>
+  }
 
+  describe('schwartz', () => {
     const data: [number, number][] = [
       [toKilograms(94), 1.2124],
       [toKilograms(110), 0.9991],
@@ -33,15 +33,35 @@ describe('schwartz-malone', () => {
       [toKilograms(348), 0.4854],
     ]
 
-  it.each(data)('%f KG matches %f table value', (weight, tableValue) => {
-    /// Tests whether two floating-point numbers are equal to 4 decimal places,
-    /// as published in the official Schwartz coefficient tables.
-    const schwartzCoefficient = Math.round(schwartz(weight) * 10_000)
-    const tableCoefficient = Math.round(tableValue * 10_000)
-    expect(schwartzCoefficient).toEqual(tableCoefficient)
+    it.each(data)('%f KG matches %f table value', (weight, tableValue) => {
+      /// Tests whether two floating-point numbers are equal to 4 decimal places,
+      /// as published in the official Schwartz coefficient tables.
+      const schwartzCoefficient = Math.round(schwartz(weight) * 10_000)
+      const tableCoefficient = Math.round(tableValue * 10_000)
+      expect(schwartzCoefficient).toEqual(tableCoefficient)
+    })
   })
-})
 
+  describe('malone', () => {
+    const data: [number, number][] = [
+      [100, 0.597914296471229]
+    ]
+
+    it.each(data)('%f KG matches %f coefficient', (weight, coefficient) => {
+      expect(malone(weight)).toEqual(coefficient)
+    })
+  })
+
+  describe('schwartz-malone', () => {
+    const data: TestInputData[] = [
+      { weight: 93, total: 500, gender: 'male', mass: 'kg', expected: 287.15 },
+      { weight: 74, total: 500, gender: 'female', mass: 'kg', expected: 364.40 },
+    ]
+  
+    it.each(data)('$gender with $weight $mass lifted $total $mass', ({ weight, total, gender, mass, expected}) => {
+      expect(schwartzmalone(weight, total, gender, mass)).toBe(expected)
+    })
+  })
 
   
 })

@@ -65,7 +65,13 @@ export const schwartz = (weightKG: number): number => {
  * Calculates the Malone coefficient, used for women.
  */
 export const malone = (weightKG: number): number => {
-  return weightKG
+  const A = 106.011586323613;
+  const B = -1.293027130579051;
+  const C = 0.322935585328304;
+
+  const _weight = Math.max(weightKG, 29.24)
+
+  return A * Math.pow(_weight, B) + C
 }
 
 export const schwartzmalone: Formula = (weight: number, total: number, gender: Gender, mass: Mass = 'kg'): number => {
