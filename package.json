@@ -1,6 +1,6 @@
 {
   "name": "powerlifting-formulas",
-  "version": "0.0.1",
+  "version": "0.2.0",
   "description": "Powerlifting Formulas Calculator (Wilks, WilksV2, Dots, IPF, Reshel and Glossbrenner)",
   "type": "module",
   "keywords": [
